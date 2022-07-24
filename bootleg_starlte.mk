@@ -27,11 +27,11 @@ $(call inherit-product, device/samsung/starlte/device.mk)
 TARGET_SCREEN_HEIGHT := 2960
 TARGET_SCREEN_WIDTH := 1440
 
-## Inherit some common Lineage stuff
-$(call inherit-product, vendor/arrow/config/common.mk)
+# Inherit some common AOSP stuff.
+$(call inherit-product, vendor/bootleggers/config/common_full_phone.mk)
 
 ## Device identifier, this must come after all inclusions
-PRODUCT_NAME := arrow_starlte
+PRODUCT_NAME := bootleg_starlte
 PRODUCT_DEVICE := starlte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-G960F
@@ -39,8 +39,17 @@ PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
-# ArrowOS Properties
-DEVICE_MAINTAINER := Baddar90
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2960
+TARGET_SCREEN_WIDTH := 1440
+TARGET_USE_SINGLE_BOOTANIMATION := true
+TARGET_PICK_BOOTANIMATION := "6"
+
+# Maintainer Prop
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bootleggers.maintainer=JochenSplifficus
+BOOTLEGGERS_BUILD_TYPE := Shishufied
+TARGET_BOOTLEG_ARCH := arm64
 
 BUILD_FINGERPRINT := "samsung/starltexx/starlte:10/QP1A.190711.020/G960FXXSHFUJ2:user/release-keys"
 

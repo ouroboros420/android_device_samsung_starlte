@@ -33,5 +33,8 @@ TARGET_SCREEN_DENSITY := 560
 # Kernel
 TARGET_KERNEL_CONFIG := exynos9810-starlte_defconfig
 
-# properties
+# Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
+# Build broken
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
